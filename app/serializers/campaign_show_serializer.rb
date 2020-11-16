@@ -1,3 +1,3 @@
 class CampaignShowSerializer < ActiveModel::Serializer
-  attributes :subject, :sent_at
+  attributes :id, :subject, :sent_at
 end

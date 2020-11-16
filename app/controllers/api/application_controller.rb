@@ -1,7 +1,5 @@
 class Api::ApplicationController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound do |e|
-    render_json_error :not_found, "#{resource_class.to_s.downcase}_not_found"
-  end
+  rescue_from ActiveRecord::RecordNotFound, with: :render_json_not_found_error
 
   def index
     resource_collection = resource_class.all
@@ -27,11 +25,17 @@ class Api::ApplicationController < ApplicationController
     @resource ||= resource_class.find(params[:id])
   end
 
+  def create_callback
+    nil
+  end
+
   def save_and_render(resource)
     if !resource.save
       render_json_validation_error resource
       return
     end
+
+    create_callback
 
     render json: resource.reload, serializer: show_serializer
   end
@@ -40,17 +44,12 @@ class Api::ApplicationController < ApplicationController
     render json: resource, status: :bad_request, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
   end
 
-  def render_json_error(status, error_code, extra = {})
-    status = Rack::Utils::SYMBOL_TO_STATUS_CODE[status] if status.is_a? Symbol
-
+  def render_json_not_found_error
     error = {
-      title: I18n.t("error_messages.#{error_code}.title"),
-      status: status,
-      code: I18n.t("error_messages.#{error_code}.code")
-    }.merge(extra)
-
-    detail = I18n.t("error_messages.#{error_code}.detail", default: '')
-    error[:detail] = detail unless detail.empty?
+      title: "Resource not found",
+      status: :not_found,
+      code: 404
+    }
 
     render json: { errors: [error] }, status: status
   end
