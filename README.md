@@ -1,24 +1,47 @@
-# README
+# Welcome
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello GlossGenious Team, in this repository you will find my solution to your coding challange. 
 
-Things you may want to cover:
 
-* Ruby version
+## Installation
+Before you start with installation make sure are using rspec gemset or similar to avoid conflicts
+with your local setup.
 
-* System dependencies
+As this is standard Ruby on Rails app, you can start with:
 
-* Configuration
+```
+bundle && rake db:create:all
+```
 
-* Database creation
+## Populate database
 
-* Database initialization
+If you want to use my test data seed the database 
 
-* How to run the test suite
+`rake db:seed`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Testing 
 
-* Deployment instructions
+To run test suite
 
-* ...
+`bundle exec rspec .`
+
+## Postman
+
+To test API vith standard server requests:
+
+`bundle exec rails s`
+
+To test proper response use the following curl comands:
+
+* list all users
+  `curl localhost:3000/api/v1/users`
+
+* user details
+  `curl localhost:3000/api/v1/users/1`
+
+* create test campaign
+  `curl -d "@test/data/campaign.json" -H "Content-Type: application/json" -X POST localhost:3000/api/v1/campaigns`
+
+
+
+

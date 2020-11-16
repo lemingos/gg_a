@@ -9,7 +9,7 @@ class Api::ApplicationController < ApplicationController
   end
 
   def show
-    render json: resource
+    render json: resource, serializer: show_serializer
   end
 
   def create
@@ -18,6 +18,10 @@ class Api::ApplicationController < ApplicationController
   end
 
   private
+
+  def show_serializer
+    nil
+  end
 
   def resource
     @resource ||= resource_class.find(params[:id])
@@ -29,7 +33,7 @@ class Api::ApplicationController < ApplicationController
       return
     end
 
-    render json: resource.reload
+    render json: resource.reload, serializer: show_serializer
   end
 
   def render_json_validation_error(resource)

@@ -5,4 +5,12 @@ class Api::V1::UsersController < Api::ApplicationController
   def resource_class
     User
   end
+
+  def show_serializer
+    UserShowSerializer
+  end
+
+  def resource_association
+    'campaigns'
+  end
 end

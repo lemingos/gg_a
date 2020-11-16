@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_133334) do
   create_table "campaigns", force: :cascade do |t|
     t.string "subject"
     t.text "message"
+    t.datetime "sent_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
