@@ -3,51 +3,89 @@ require 'rspec/json_expectations'
 
 RSpec.describe 'API V1 Campaigns', type: :request do
 
-  let(:users) { FactoryBot.create_list(:user, 10) }
-  let :valid_campaign_data do
-    {
-      data: {
-        attributes: {
-          subject: 'New Campaign',
-          message: 'This is great!',
-          recipients: users.map(&:email)
+  describe '#post' do
+    let(:users) { FactoryBot.create_list(:user, 10) }
+    let :valid_campaign_data do
+      {
+        data: {
+          attributes: {
+            subject: 'New Campaign',
+            message: 'This is great!',
+            recipients: users.map(&:email)
+          }
         }
       }
-    }
+    end
+
+    describe "valid params" do
+      subject  {  post '/api/v1/campaigns', params: valid_campaign_data }
+
+      it { expect { subject }.to change { Campaign.count }.from(0).to(1) }
+    end
+
+    describe "invvalid params" do
+      subject  {  post '/api/v1/campaigns', params: {} }
+
+      it { expect { subject }.to change { Campaign.count }.by(0) }
+    end
+
+    describe 'validation errors' do
+      let(:validation_error_json) do
+        {
+          'errors' => [
+            {
+              'source':{'pointer' => '/data/attributes/subject'},
+              'detail' => "can't be blank"
+            },
+            {
+              'source' => {'pointer' => '/data/attributes/message'},
+              'detail' => "can't be blank"
+            },
+          ]
+        }
+      end
+
+      subject do
+        post '/api/v1/campaigns', params: {}
+        response.body
+      end
+
+      it { expect(subject).to include_json(validation_error_json) }
+    end
   end
 
-  it 'creates campaign' do
-    users
-    expect do
-      post '/api/v1/campaigns', params: valid_campaign_data
+  describe 'test user association' do
+    before(:all) do
+      user = FactoryBot.create(:user)
+      post "/api/v1/campaigns", params: {
+        data: { attributes: { message: 'test', subject: 'test', recipients: [user.email] } }
+      }
+      @user = user.reload
     end
-      .to change { User.count }.by(0)
-      .and change { Campaign.count }.by(1)
+
+    subject { @user }
+
+    it { expect(subject.campaign_count).to eql(1) }
+    it { expect(subject.campaigns).to include(Campaign.last) }
   end
 
-  it 'should raise campaign validation' do
-    expect do
-      post '/api/v1/campaigns', params: {}
+  describe 'valid response' do
+    before(:all) do
+      @users = FactoryBot.create_list(:user, 10)
+
+      post "/api/v1/campaigns", params: {
+        data: { attributes: { message: 'test', subject: 'test', recipients: @users.map(&:email) } }
+      }
+
+      @response = response.body
     end
-      .to change { Campaign.count }.by(0)
-      .and change { User.count }.by(0)
 
-    expect(response.body).to include_json(
-      { 'errors' => [
-        {'source' => {'pointer' => '/data/attributes/subject'}, 'detail' => "can't be blank"},
-        {'source' => {'pointer' => '/data/attributes/message'}, 'detail' => "can't be blank"},
-      ] }
-    )
-  end
-
-  describe 'test association' do
-    let(:user) { FactoryBot.create(:user) }
-
-    it 'records association properly' do
-      post "/api/v1/campaigns", params: {data: { attributes: { message: 'test', subject: 'test', recipients: [user.email] } } }
-      user.reload
-      expect(user.campaign_count).to eql(1)
-      expect(user.campaigns).to include(Campaign.last)
+    let(:valid_response) do
+      CampaignSerializer.new(Campaign.last).as_json
     end
+
+    subject { @response }
+
+    it { expect(subject).to include_json(valid_response) }
   end
 end

@@ -29,7 +29,7 @@ class Api::ApplicationController < ApplicationController
       return
     end
 
-    render json: resource
+    render json: resource.reload
   end
 
   def render_json_validation_error(resource)

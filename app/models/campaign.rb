@@ -6,13 +6,13 @@ class Campaign < ApplicationRecord
 
   after_create :update_users
 
+  def users=users_emails
+    users << User.where(email: users_emails)
+  end
+
   private
 
   def update_users
     users.update_all('campaign_count = campaign_count + 1')
-  end
-
-  def users=users_emails
-    users << User.where(email: users_emails)
   end
 end
