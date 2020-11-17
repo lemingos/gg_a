@@ -19,13 +19,25 @@ If you want to use my test data seed the database
 
 `rake db:seed`
 
-## Testing 
+## Automated Tests
 
 To run test suite
 
 `bundle exec rspec .`
 
-## Postman
+
+## Setting up mail clients
+
+### Sendgrid 
+  
+Simply set `SENDGRID_API_KEY` in the `.env` file.
+
+### Mailgun
+
+Set `MAILGUN_API_KEY` and `MAILGUN_DOMAIN` in the `.env` file.
+In sandbox enviornment add test user emails as [Authorized Recipients](https://help.mailgun.com/hc/en-us/articles/217531258)
+
+## API tests
 
 To test API vith standard server requests:
 
@@ -41,6 +53,8 @@ To test proper response use the following curl comands:
 
 * create test campaign
   `curl -d "@test/data/campaign.json" -H "Content-Type: application/json" -X POST localhost:3000/api/v1/campaigns`
+
+
 
 
 
