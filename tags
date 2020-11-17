@@ -28,6 +28,7 @@ CreateCampaigns	db/migrate/20201116131609_create_campaigns.rb	/^class CreateCamp
 CreateUsers	db/migrate/20201116133105_create_users.rb	/^class CreateUsers < ActiveRecord::Migration[6.0]$/;"	c
 CreateUsersCampaigns	db/migrate/20201116133334_create_users_campaigns.rb	/^class CreateUsersCampaigns < ActiveRecord::Migration[6.0]$/;"	c
 Email	lib/email/api.rb	/^module Email$/;"	m
+Email	lib/email/api_error.rb	/^class Email::ApiError < StandardError; end$/;"	c
 Email	lib/email/message.rb	/^module Email$/;"	m
 Email	lib/email/providers/base.rb	/^module Email$/;"	m
 Email	lib/email/providers/mailgun.rb	/^module Email$/;"	m
@@ -79,7 +80,8 @@ lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
 mail	lib/email/providers/sendgrid.rb	/^      def mail$/;"	f	class:Email.Providers.Sendgrid
 message_params	lib/email/providers/mailgun.rb	/^      def message_params$/;"	f	class:Email.Providers.Mailgun
 provider	lib/email/api.rb	/^    def provider$/;"	f	class:Email.Api
-provider	lib/email/message.rb	/^    def provider$/;"	f	class:Email.Message
+provider_class	lib/email/message.rb	/^    def provider_class$/;"	f	class:Email.Message
+provider_name	lib/email/message.rb	/^    def provider_name$/;"	f	class:Email.Message
 render_json_not_found_error	app/controllers/api/application_controller.rb	/^  def render_json_not_found_error$/;"	f	class:Api
 render_json_validation_error	app/controllers/api/application_controller.rb	/^  def render_json_validation_error(resource)$/;"	f	class:Api
 resource	app/controllers/api/application_controller.rb	/^  def resource$/;"	f	class:Api

@@ -21,5 +21,7 @@ class CampaignDeliveryService
         body: campaign.message
       ).deliver
     end
+
+    campaign.touch(:sent_at)
   end
 end

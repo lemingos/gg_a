@@ -1,1 +1,1 @@
-{"data": {	"type":"undefined", "id":"undefined", "attributes":{ "subject":"Welcome!", "message":"This is the very first email from our test campaign!", "recipients": [ "lemkowski+foo@gmail.com", "bar@gmail.com" ] } } }
+{"data": {	"type":"undefined", "id":"undefined", "attributes":{ "subject":"Welcome!", "message":"This is the very first email from our test campaign!", "recipients": [ "lemkowski+foo@gmail.com", "lemkowski+bar@gmail.com" ] } } }

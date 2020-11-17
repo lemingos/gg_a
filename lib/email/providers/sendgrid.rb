@@ -7,7 +7,8 @@ module Email
       include SendGrid
 
       def deliver
-        client.mail._('send').post(request_body: mail.to_json)
+        response = client.mail._('send').post(request_body: mail.to_json)
+        raise ApiError unless response.status_code =~ /20\d/
       end
 
       private
