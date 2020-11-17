@@ -8,5 +8,6 @@ RSpec.describe Campaign, type: :model do
   describe "Validations" do
     it { should validate_presence_of(:subject) }
     it { should validate_presence_of(:message) }
+    it { should validate_presence_of(:users) }
   end
 end

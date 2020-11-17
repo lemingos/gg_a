@@ -24,7 +24,7 @@ RSpec.describe 'API V1 Users', type: :request do
 
   describe '#show' do
     let(:user) do
-      FactoryBot.create(:user, :with_campaigns, count: 5)
+      FactoryBot.create(:user)
     end
 
     let :valid_response do

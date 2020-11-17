@@ -2,7 +2,7 @@ require 'sendgrid-ruby'
 
 module Email
   module Providers
-    class Sendgrid < Email::Providers::Base
+    class SendgridProvider < Email::Providers::Base
 
       include SendGrid
 

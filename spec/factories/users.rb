@@ -13,8 +13,8 @@ FactoryBot.define do
       transient do
         count { 3 }
       end
-      after(:create) do |user, e|
-        user.campaigns << create_list(:campaign, e.count)
+      before(:create) do |user, e|
+        user.campaigns << create_list(:campaign, e.count, users: [user])
       end
     end
   end

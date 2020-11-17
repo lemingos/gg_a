@@ -8,7 +8,7 @@ FactoryBot.define do
         count { 3 }
       end
 
-      after(:create) do |campaign, e|
+      before(:create) do |campaign, e|
         campaign.users << create_list(:user, e.count)
       end
     end

@@ -18,7 +18,8 @@ RSpec.describe 'API V1 Campaigns', type: :request do
     end
 
     describe "valid params" do
-      subject  {  post '/api/v1/campaigns', params: valid_campaign_data }
+      before(:each) { stub_request(:post, "https://api.sendgrid.com/v3/mail/send") }
+      subject  { post '/api/v1/campaigns', params: valid_campaign_data }
 
       it { expect { subject }.to change { Campaign.count }.from(0).to(1) }
     end
@@ -56,6 +57,7 @@ RSpec.describe 'API V1 Campaigns', type: :request do
 
   describe 'test user association' do
     before(:all) do
+      stub_request(:post, "https://api.sendgrid.com/v3/mail/send")
       user = FactoryBot.create(:user)
       post "/api/v1/campaigns", params: {
         data: { attributes: { message: 'test', subject: 'test', recipients: [user.email] } }
@@ -71,6 +73,7 @@ RSpec.describe 'API V1 Campaigns', type: :request do
 
   describe 'valid response' do
     before(:all) do
+      stub_request(:post, "https://api.sendgrid.com/v3/mail/send")
       @users = FactoryBot.create_list(:user, 10)
 
       post "/api/v1/campaigns", params: {

@@ -2,11 +2,13 @@ require 'mailgun-ruby'
 
 module Email
   module Providers
-    class Mailgun < Email::Providers::Base
+    class MailgunProvider < Email::Providers::Base
 
       def deliver
         response = client.send_message ENV['MAILGUN_DOMAIN'], message_params
         raise ApiError unless response.code.to_s =~ /20\d/
+      rescue Mailgun::CommunicationError
+        raise ApiError
       end
 
       private

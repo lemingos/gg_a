@@ -3,6 +3,7 @@ class Campaign < ApplicationRecord
 
   validates :subject, presence: true, length: { maximum: 255 }
   validates :message, presence: true
+  validates :users, presence: true
 
   def users=users_emails
     users << User.where(email: users_emails)
@@ -11,5 +12,4 @@ class Campaign < ApplicationRecord
   def increase_user_campaign_counters!
     users.update_all('campaign_count = campaign_count + 1')
   end
-
 end

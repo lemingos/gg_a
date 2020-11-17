@@ -32,14 +32,20 @@ Email	lib/email/api_error.rb	/^class Email::ApiError < StandardError; end$/;"	c
 Email	lib/email/message.rb	/^module Email$/;"	m
 Email	lib/email/providers/base.rb	/^module Email$/;"	m
 Email	lib/email/providers/mailgun.rb	/^module Email$/;"	m
+Email	lib/email/providers/mailgun_provider.rb	/^module Email$/;"	m
 Email	lib/email/providers/sendgrid.rb	/^module Email$/;"	m
+Email	lib/email/providers/sendgrid_provider.rb	/^module Email$/;"	m
 GlossGeniusApi	config/application.rb	/^module GlossGeniusApi$/;"	m
-Mailgun	lib/email/providers/mailgun.rb	/^    class Mailgun < Email::Providers::Base$/;"	c	class:Email.Providers
+MailgunProvider	lib/email/providers/mailgun.rb	/^    class MailgunProvider < Email::Providers::Base$/;"	c	class:Email.Providers
+MailgunProvider	lib/email/providers/mailgun_provider.rb	/^    class MailgunProvider < Email::Providers::Base$/;"	c	class:Email.Providers
 Message	lib/email/message.rb	/^  class Message$/;"	c	class:Email
 Providers	lib/email/providers/base.rb	/^  module Providers$/;"	m	class:Email
 Providers	lib/email/providers/mailgun.rb	/^  module Providers$/;"	m	class:Email
+Providers	lib/email/providers/mailgun_provider.rb	/^  module Providers$/;"	m	class:Email
 Providers	lib/email/providers/sendgrid.rb	/^  module Providers$/;"	m	class:Email
+Providers	lib/email/providers/sendgrid_provider.rb	/^  module Providers$/;"	m	class:Email
 Sendgrid	lib/email/providers/sendgrid.rb	/^    class Sendgrid < Email::Providers::Base$/;"	c	class:Email.Providers
+SendgridProvider	lib/email/providers/sendgrid_provider.rb	/^    class SendgridProvider < Email::Providers::Base$/;"	c	class:Email.Providers
 User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
 UserCampaignMailer	app/mailers/user_campaign_mailer.rb	/^class UserCampaignMailer < ApplicationMailer$/;"	c
 UserCampaignMailerPreview	spec/mailers/previews/user_campaign_mailer_preview.rb	/^class UserCampaignMailerPreview < ActionMailer::Preview$/;"	c
@@ -55,19 +61,25 @@ change	db/migrate/20201116131609_create_campaigns.rb	/^  def change$/;"	f	class:
 change	db/migrate/20201116133105_create_users.rb	/^  def change$/;"	f	class:CreateUsers
 change	db/migrate/20201116133334_create_users_campaigns.rb	/^  def change$/;"	f	class:CreateUsersCampaigns
 cli_arg_version	bin/bundle	/^  def cli_arg_version$/;"	f
-client	lib/email/providers/mailgun.rb	/^      def client$/;"	f	class:Email.Providers.Mailgun
+client	lib/email/providers/mailgun.rb	/^      def client$/;"	f	class:Email.Providers.MailgunProvider
+client	lib/email/providers/mailgun_provider.rb	/^      def client$/;"	f	class:Email.Providers.MailgunProvider
 client	lib/email/providers/sendgrid.rb	/^      def client$/;"	f	class:Email.Providers.Sendgrid
+client	lib/email/providers/sendgrid_provider.rb	/^      def client$/;"	f	class:Email.Providers.SendgridProvider
 content	lib/email/providers/sendgrid.rb	/^      def content$/;"	f	class:Email.Providers.Sendgrid
+content	lib/email/providers/sendgrid_provider.rb	/^      def content$/;"	f	class:Email.Providers.SendgridProvider
 create	app/controllers/api/application_controller.rb	/^  def create$/;"	f	class:Api
 create_callback	app/controllers/api/application_controller.rb	/^  def create_callback; end$/;"	f	class:Api
 create_callback	app/controllers/api/v1/campaigns_controller.rb	/^  def create_callback$/;"	f	class:Api
 deliver	lib/email/api.rb	/^    def deliver$/;"	f	class:Email.Api
 deliver	lib/email/message.rb	/^    def deliver$/;"	f	class:Email.Message
-deliver	lib/email/providers/mailgun.rb	/^      def deliver$/;"	f	class:Email.Providers.Mailgun
+deliver	lib/email/providers/mailgun.rb	/^      def deliver$/;"	f	class:Email.Providers.MailgunProvider
+deliver	lib/email/providers/mailgun_provider.rb	/^      def deliver$/;"	f	class:Email.Providers.MailgunProvider
 deliver	lib/email/providers/sendgrid.rb	/^      def deliver$/;"	f	class:Email.Providers.Sendgrid
+deliver	lib/email/providers/sendgrid_provider.rb	/^      def deliver$/;"	f	class:Email.Providers.SendgridProvider
 deliver_campaign	app/services/campaign_delivery_service.rb	/^  def deliver_campaign$/;"	f	class:CampaignDeliveryService
 env_var_version	bin/bundle	/^  def env_var_version$/;"	f
 from	lib/email/providers/sendgrid.rb	/^      def from$/;"	f	class:Email.Providers.Sendgrid
+from	lib/email/providers/sendgrid_provider.rb	/^      def from$/;"	f	class:Email.Providers.SendgridProvider
 gemfile	bin/bundle	/^  def gemfile$/;"	f
 increase_user_campaign_counters!	app/models/campaign.rb	/^  def increase_user_campaign_counters!$/;"	f	class:Campaign
 index	app/controllers/api/application_controller.rb	/^  def index$/;"	f	class:Api
@@ -79,7 +91,9 @@ load_bundler!	bin/bundle	/^  def load_bundler!$/;"	f
 lockfile	bin/bundle	/^  def lockfile$/;"	f
 lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
 mail	lib/email/providers/sendgrid.rb	/^      def mail$/;"	f	class:Email.Providers.Sendgrid
-message_params	lib/email/providers/mailgun.rb	/^      def message_params$/;"	f	class:Email.Providers.Mailgun
+mail	lib/email/providers/sendgrid_provider.rb	/^      def mail$/;"	f	class:Email.Providers.SendgridProvider
+message_params	lib/email/providers/mailgun.rb	/^      def message_params$/;"	f	class:Email.Providers.MailgunProvider
+message_params	lib/email/providers/mailgun_provider.rb	/^      def message_params$/;"	f	class:Email.Providers.MailgunProvider
 provider	lib/email/api.rb	/^    def provider$/;"	f	class:Email.Api
 provider_class	lib/email/message.rb	/^    def provider_class$/;"	f	class:Email.Message
 provider_name	lib/email/message.rb	/^    def provider_name$/;"	f	class:Email.Message
@@ -96,4 +110,5 @@ show_serializer	app/controllers/api/v1/campaigns_controller.rb	/^  def show_seri
 show_serializer	app/controllers/api/v1/users_controller.rb	/^  def show_serializer$/;"	f	class:Api
 system!	bin/setup	/^def system!(*args)$/;"	f
 to	lib/email/providers/sendgrid.rb	/^      def to$/;"	f	class:Email.Providers.Sendgrid
+to	lib/email/providers/sendgrid_provider.rb	/^      def to$/;"	f	class:Email.Providers.SendgridProvider
 users=	app/models/campaign.rb	/^  def users=users_emails$/;"	f	class:Campaign

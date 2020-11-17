@@ -47,7 +47,6 @@ To test proper response use the following curl comands:
 
 * create new user
 `curl -d '{"data":{"attributes":{ "email":"test@example.com"}}}'  -H "Content-Type: application/json" -X POST localhost:3000/api/v1/users`
- 
 
 * list all users
   `curl localhost:3000/api/v1/users`
@@ -55,10 +54,12 @@ To test proper response use the following curl comands:
 * user details
   `curl localhost:3000/api/v1/users/1`
 
-* create test campaign
+* create test campaign from predefined data
   `curl -d "@test/data/campaign.json" -H "Content-Type: application/json" -X POST localhost:3000/api/v1/campaigns`
 
-Email of users that do not exists in the database are ignored.
+* create test campaign from dynamic data
+  `curl -d '{"data": { "attributes": { "message": "Test", "subject": "Hi", "recipients": ["test@example.com"] }}}' -H "Content-Type: application/json" -X POST localhost:3000/api/v1/campaigns`
+
 
 
 

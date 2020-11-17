@@ -1,7 +1,7 @@
 module Email
   class Message
     FROM = 'test@example.com'
-    PROVIDERS = %w(Sendgrid Mailgun).freeze
+    PROVIDERS = %w(SendgridProvider MailgunProvider).freeze
 
     def initialize(attributes)
       @retry_count = 0
@@ -10,10 +10,10 @@ module Email
 
     def deliver
       provider_class.new(@attributes).deliver
-    rescue Exception => e
+    rescue ApiError => e
       @retry_count += 1
 
-      if @retry_count <= PROVIDERS.size
+      if @retry_count < PROVIDERS.size
         retry
       else
         raise ApiError, 'message not delivered'
