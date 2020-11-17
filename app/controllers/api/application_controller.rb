@@ -30,6 +30,8 @@ class Api::ApplicationController < ApplicationController
     render json: resource, serializer: show_serializer
   end
 
+  def create_callback; end
+
   def render_json_validation_error(resource)
     render json: resource, status: :bad_request, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
   end

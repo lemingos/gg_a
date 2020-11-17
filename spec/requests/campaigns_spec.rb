@@ -81,7 +81,7 @@ RSpec.describe 'API V1 Campaigns', type: :request do
     end
 
     let(:valid_response) do
-      CampaignShowSerializer.new(Campaign.last).as_json
+      Campaign.last.as_json(only: [:id, :subject])
     end
 
     subject { @response }

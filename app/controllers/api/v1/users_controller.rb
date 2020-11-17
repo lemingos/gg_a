@@ -9,4 +9,8 @@ class Api::V1::UsersController < Api::ApplicationController
   def show_serializer
     UserShowSerializer
   end
+
+  def resource_params
+    ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: [:email], keys: {})
+  end
 end

@@ -38,6 +38,7 @@ group :development, :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'rspec-json_expectations'
+  gem 'webmock'
   gem 'dotenv-rails'
 end
 

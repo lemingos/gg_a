@@ -59,6 +59,7 @@ client	lib/email/providers/mailgun.rb	/^      def client$/;"	f	class:Email.Provi
 client	lib/email/providers/sendgrid.rb	/^      def client$/;"	f	class:Email.Providers.Sendgrid
 content	lib/email/providers/sendgrid.rb	/^      def content$/;"	f	class:Email.Providers.Sendgrid
 create	app/controllers/api/application_controller.rb	/^  def create$/;"	f	class:Api
+create_callback	app/controllers/api/application_controller.rb	/^  def create_callback; end$/;"	f	class:Api
 create_callback	app/controllers/api/v1/campaigns_controller.rb	/^  def create_callback$/;"	f	class:Api
 deliver	lib/email/api.rb	/^    def deliver$/;"	f	class:Email.Api
 deliver	lib/email/message.rb	/^    def deliver$/;"	f	class:Email.Message
@@ -88,6 +89,7 @@ resource	app/controllers/api/application_controller.rb	/^  def resource$/;"	f	cl
 resource_class	app/controllers/api/v1/campaigns_controller.rb	/^  def resource_class$/;"	f	class:Api
 resource_class	app/controllers/api/v1/users_controller.rb	/^  def resource_class$/;"	f	class:Api
 resource_params	app/controllers/api/v1/campaigns_controller.rb	/^  def resource_params$/;"	f	class:Api
+resource_params	app/controllers/api/v1/users_controller.rb	/^  def resource_params$/;"	f	class:Api
 save_and_render	app/controllers/api/application_controller.rb	/^  def save_and_render$/;"	f	class:Api
 show	app/controllers/api/application_controller.rb	/^  def show$/;"	f	class:Api
 show_serializer	app/controllers/api/v1/campaigns_controller.rb	/^  def show_serializer$/;"	f	class:Api

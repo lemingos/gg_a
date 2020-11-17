@@ -45,6 +45,10 @@ To test API vith standard server requests:
 
 To test proper response use the following curl comands:
 
+* create new user
+`curl -d '{"data":{"attributes":{ "email":"test@example.com"}}}'  -H "Content-Type: application/json" -X POST localhost:3000/api/v1/users`
+ 
+
 * list all users
   `curl localhost:3000/api/v1/users`
 
@@ -53,6 +57,8 @@ To test proper response use the following curl comands:
 
 * create test campaign
   `curl -d "@test/data/campaign.json" -H "Content-Type: application/json" -X POST localhost:3000/api/v1/campaigns`
+
+Email of users that do not exists in the database are ignored.
 
 
 
