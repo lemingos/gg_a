@@ -1,8 +1,10 @@
 class Api::V1::CampaignsController < Api::ApplicationController
+
   private
 
   def create_callback
-    CampaignMailer.with(campaign: resource).campaign_email.deliver_later
+    resource.increase_user_campaign_counters!
+    CampaignDeliveryService.new(resource).call
   end
 
   def resource_class

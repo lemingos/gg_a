@@ -10,7 +10,7 @@ gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 gem 'active_model_serializers', '~> 0.10.0'
-
+gem 'sendgrid-ruby'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -36,6 +36,7 @@ group :development, :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'rspec-json_expectations'
+  gem 'dotenv-rails'
 end
 
 group :development do

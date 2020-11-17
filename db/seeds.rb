@@ -1,2 +1,2 @@
-User.create([{ email: 'foo@example.com' }, { email: 'bar@example.com' }])
+User.create([{ email: 'lemkowski+foo@gmail.com' }, { email: 'lemkowski+bar@gmail.com' }])
 

@@ -9,8 +9,4 @@ class Api::V1::UsersController < Api::ApplicationController
   def show_serializer
     UserShowSerializer
   end
-
-  def resource_association
-    'campaigns'
-  end
 end

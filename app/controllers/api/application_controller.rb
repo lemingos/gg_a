@@ -11,33 +11,23 @@ class Api::ApplicationController < ApplicationController
   end
 
   def create
-    resource_new = resource_class.new(resource_params)
-    save_and_render(resource_new)
-  end
-
-  private
-
-  def show_serializer
-    nil
+    @resource = resource_class.new(resource_params)
+    save_and_render
   end
 
   def resource
     @resource ||= resource_class.find(params[:id])
   end
 
-  def create_callback
-    nil
-  end
-
-  def save_and_render(resource)
-    if !resource.save
+  def save_and_render
+    unless resource.save
       render_json_validation_error resource
       return
     end
 
     create_callback
 
-    render json: resource.reload, serializer: show_serializer
+    render json: resource, serializer: show_serializer
   end
 
   def render_json_validation_error(resource)

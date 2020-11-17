@@ -1,0 +1,95 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+Api	app/controllers/api/application_controller.rb	/^class Api::ApplicationController < ApplicationController$/;"	c
+Api	app/controllers/api/v1/campaigns_controller.rb	/^class Api::V1::CampaignsController < Api::ApplicationController$/;"	c
+Api	app/controllers/api/v1/users_controller.rb	/^class Api::V1::UsersController < Api::ApplicationController$/;"	c
+Api	lib/email/api.rb	/^  module Api$/;"	m	class:Email
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:GlossGeniusApi
+ApplicationCable	app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	test/channels/application_cable/connection_test.rb	/^class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCase$/;"	c
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::API$/;"	c
+ApplicationJob	app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c
+ApplicationMailer	app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
+ApplicationRecord	app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+Base	lib/email/providers/base.rb	/^    class Base$/;"	c	class:Email.Providers
+Campaign	app/models/campaign.rb	/^class Campaign < ApplicationRecord$/;"	c
+CampaignDeliveryService	app/services/campaign_delivery_service.rb	/^class CampaignDeliveryService$/;"	c
+CampaignSerializer	app/serializers/campaign_serializer.rb	/^class CampaignSerializer < ActiveModel::Serializer$/;"	c
+CampaignShowSerializer	app/serializers/campaign_show_serializer.rb	/^class CampaignShowSerializer < ActiveModel::Serializer$/;"	c
+Channel	app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable
+Connection	app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
+CreateCampaigns	db/migrate/20201116131609_create_campaigns.rb	/^class CreateCampaigns < ActiveRecord::Migration[6.0]$/;"	c
+CreateUsers	db/migrate/20201116133105_create_users.rb	/^class CreateUsers < ActiveRecord::Migration[6.0]$/;"	c
+CreateUsersCampaigns	db/migrate/20201116133334_create_users_campaigns.rb	/^class CreateUsersCampaigns < ActiveRecord::Migration[6.0]$/;"	c
+Email	lib/email/api.rb	/^module Email$/;"	m
+Email	lib/email/message.rb	/^module Email$/;"	m
+Email	lib/email/providers/base.rb	/^module Email$/;"	m
+Email	lib/email/providers/mailgun.rb	/^module Email$/;"	m
+Email	lib/email/providers/sendgrid.rb	/^module Email$/;"	m
+GlossGeniusApi	config/application.rb	/^module GlossGeniusApi$/;"	m
+Mailgun	lib/email/providers/mailgun.rb	/^    class Mailgun < Email::Providers::Base$/;"	c	class:Email.Providers
+Message	lib/email/message.rb	/^  class Message$/;"	c	class:Email
+Providers	lib/email/providers/base.rb	/^  module Providers$/;"	m	class:Email
+Providers	lib/email/providers/mailgun.rb	/^  module Providers$/;"	m	class:Email
+Providers	lib/email/providers/sendgrid.rb	/^  module Providers$/;"	m	class:Email
+Sendgrid	lib/email/providers/sendgrid.rb	/^    class Sendgrid < Email::Providers::Base$/;"	c	class:Email.Providers
+User	app/models/user.rb	/^class User < ApplicationRecord$/;"	c
+UserCampaignMailer	app/mailers/user_campaign_mailer.rb	/^class UserCampaignMailer < ApplicationMailer$/;"	c
+UserCampaignMailerPreview	spec/mailers/previews/user_campaign_mailer_preview.rb	/^class UserCampaignMailerPreview < ActionMailer::Preview$/;"	c
+UserSerializer	app/serializers/user_serializer.rb	/^class UserSerializer < ActiveModel::Serializer$/;"	c
+UserShowSerializer	app/serializers/user_show_serializer.rb	/^class UserShowSerializer < ActiveModel::Serializer$/;"	c
+activate_bundler	bin/bundle	/^  def activate_bundler$/;"	f
+activation_error_handling	bin/bundle	/^  def activation_error_handling$/;"	f
+bundler_requirement	bin/bundle	/^  def bundler_requirement$/;"	f
+bundler_version	bin/bundle	/^  def bundler_version$/;"	f
+call	app/services/campaign_delivery_service.rb	/^  def call$/;"	f	class:CampaignDeliveryService
+campaign_email	app/mailers/user_campaign_mailer.rb	/^  def campaign_email$/;"	f	class:UserCampaignMailer
+change	db/migrate/20201116131609_create_campaigns.rb	/^  def change$/;"	f	class:CreateCampaigns
+change	db/migrate/20201116133105_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20201116133334_create_users_campaigns.rb	/^  def change$/;"	f	class:CreateUsersCampaigns
+cli_arg_version	bin/bundle	/^  def cli_arg_version$/;"	f
+client	lib/email/providers/mailgun.rb	/^      def client$/;"	f	class:Email.Providers.Mailgun
+client	lib/email/providers/sendgrid.rb	/^      def client$/;"	f	class:Email.Providers.Sendgrid
+content	lib/email/providers/sendgrid.rb	/^      def content$/;"	f	class:Email.Providers.Sendgrid
+create	app/controllers/api/application_controller.rb	/^  def create$/;"	f	class:Api
+create_callback	app/controllers/api/v1/campaigns_controller.rb	/^  def create_callback$/;"	f	class:Api
+deliver	lib/email/api.rb	/^    def deliver$/;"	f	class:Email.Api
+deliver	lib/email/message.rb	/^    def deliver$/;"	f	class:Email.Message
+deliver	lib/email/providers/mailgun.rb	/^      def deliver$/;"	f	class:Email.Providers.Mailgun
+deliver	lib/email/providers/sendgrid.rb	/^      def deliver$/;"	f	class:Email.Providers.Sendgrid
+deliver_campaign	app/services/campaign_delivery_service.rb	/^  def deliver_campaign$/;"	f	class:CampaignDeliveryService
+env_var_version	bin/bundle	/^  def env_var_version$/;"	f
+from	lib/email/providers/sendgrid.rb	/^      def from$/;"	f	class:Email.Providers.Sendgrid
+gemfile	bin/bundle	/^  def gemfile$/;"	f
+increase_user_campaign_counters!	app/models/campaign.rb	/^  def increase_user_campaign_counters!$/;"	f	class:Campaign
+index	app/controllers/api/application_controller.rb	/^  def index$/;"	f	class:Api
+initialize	app/services/campaign_delivery_service.rb	/^  def initialize(campaign)$/;"	f	class:CampaignDeliveryService
+initialize	lib/email/message.rb	/^    def initialize(attributes)$/;"	f	class:Email.Message
+initialize	lib/email/providers/base.rb	/^      def initialize(email:, subject:, body:)$/;"	f	class:Email.Providers.Base
+invoked_as_script?	bin/bundle	/^  def invoked_as_script?$/;"	f
+load_bundler!	bin/bundle	/^  def load_bundler!$/;"	f
+lockfile	bin/bundle	/^  def lockfile$/;"	f
+lockfile_version	bin/bundle	/^  def lockfile_version$/;"	f
+mail	lib/email/providers/sendgrid.rb	/^      def mail$/;"	f	class:Email.Providers.Sendgrid
+message_params	lib/email/providers/mailgun.rb	/^      def message_params$/;"	f	class:Email.Providers.Mailgun
+provider	lib/email/api.rb	/^    def provider$/;"	f	class:Email.Api
+provider	lib/email/message.rb	/^    def provider$/;"	f	class:Email.Message
+render_json_not_found_error	app/controllers/api/application_controller.rb	/^  def render_json_not_found_error$/;"	f	class:Api
+render_json_validation_error	app/controllers/api/application_controller.rb	/^  def render_json_validation_error(resource)$/;"	f	class:Api
+resource	app/controllers/api/application_controller.rb	/^  def resource$/;"	f	class:Api
+resource_class	app/controllers/api/v1/campaigns_controller.rb	/^  def resource_class$/;"	f	class:Api
+resource_class	app/controllers/api/v1/users_controller.rb	/^  def resource_class$/;"	f	class:Api
+resource_params	app/controllers/api/v1/campaigns_controller.rb	/^  def resource_params$/;"	f	class:Api
+save_and_render	app/controllers/api/application_controller.rb	/^  def save_and_render$/;"	f	class:Api
+show	app/controllers/api/application_controller.rb	/^  def show$/;"	f	class:Api
+show_serializer	app/controllers/api/v1/campaigns_controller.rb	/^  def show_serializer$/;"	f	class:Api
+show_serializer	app/controllers/api/v1/users_controller.rb	/^  def show_serializer$/;"	f	class:Api
+system!	bin/setup	/^def system!(*args)$/;"	f
+to	lib/email/providers/sendgrid.rb	/^      def to$/;"	f	class:Email.Providers.Sendgrid
+users=	app/models/campaign.rb	/^  def users=users_emails$/;"	f	class:Campaign
