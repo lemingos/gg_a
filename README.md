@@ -10,7 +10,7 @@ with your local setup.
 As this is standard Ruby on Rails app, you can start with:
 
 ```
-bundle && rake db:create:all
+bundle && rake db:create:all && rake db:migrate
 ```
 
 ## Populate database
